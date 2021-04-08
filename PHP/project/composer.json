@@ -1,0 +1,17 @@
+{
+    "name": "art-of-unit-test/project",
+    "description": "art-of-unit-test",
+    "require": {
+        "phpunit/phpunit": "^8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Src\\": "src",
+            "Test\\": "test"
+        },
+        "classmap": [
+            "src",
+            "test"
+        ]
+    }
+}
