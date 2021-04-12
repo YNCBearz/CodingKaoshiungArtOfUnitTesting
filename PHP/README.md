@@ -17,7 +17,7 @@ docker exec -it docker_php_testing bash
 ```
 composer install
 ```
-6. 安裝完套件之後就可以透過下面指令去執行 test 資料夾內的測試
+6. 安裝完套件之後就可以透過下面指令去執行 tests 資料夾內的測試
 ```
-./vendor/bin/phpunit test
+./vendor/bin/phpunit
 ```

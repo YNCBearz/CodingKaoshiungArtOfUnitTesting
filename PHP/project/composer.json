@@ -7,11 +7,11 @@
     "autoload": {
         "psr-4": {
             "Src\\": "src",
-            "Test\\": "test"
+            "Tests\\": "tests"
         },
         "classmap": [
             "src",
-            "test"
+            "tests"
         ]
     }
 }
