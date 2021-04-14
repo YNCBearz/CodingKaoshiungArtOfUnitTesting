@@ -8,7 +8,8 @@
 
 > 執行專案
 ```zsh
-> cd CKUT
+//有兩層CKUT喔
+> cd CKUT 
 > dotnet run
 ```
 
