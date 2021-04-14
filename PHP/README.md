@@ -1,6 +1,6 @@
 # PHP 環境生成
 
-1. 必須先安裝 Docker(含 Docker Compose)
+1. 必須先安裝 Docker(含 Docker Compose)，要先打開docker desktop
 2. cd 到 PHP 資料夾底下
 ```
 cd PHP
