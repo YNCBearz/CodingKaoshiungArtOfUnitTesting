@@ -1,7 +1,11 @@
 pipeline {
     agent { docker { image 'php' } }
     stages {
-        stage('phpunit') {
+        stage('Composer Install') {
+            sh 'composer install'
+        }
+
+        stage('PHPUnit') {
             steps {
                 sh './vendor/bin/phpunit'
             }
