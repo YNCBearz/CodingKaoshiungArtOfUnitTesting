@@ -13,7 +13,7 @@ pipeline {
         stage('PHPUnit') {
             agent { docker { image 'php' } }
             steps {
-                sh './vendor/bin/phpunit'
+                sh './PHP/project/vendor/bin/phpunit'
             }
         }
     }
