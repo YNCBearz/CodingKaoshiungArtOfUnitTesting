@@ -1,0 +1,10 @@
+pipeline {
+    agent { docker { image 'php' } }
+    stages {
+        stage('phpunit') {
+            steps {
+                sh './vendor/bin/phpunit'
+            }
+        }
+    }
+}
