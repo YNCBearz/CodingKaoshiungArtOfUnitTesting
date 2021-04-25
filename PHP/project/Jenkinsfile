@@ -2,7 +2,9 @@ pipeline {
     agent { docker { image 'php' } }
     stages {
         stage('Composer Install') {
-            sh 'composer install'
+            steps {
+                sh 'composer install'
+            }
         }
 
         stage('PHPUnit') {
