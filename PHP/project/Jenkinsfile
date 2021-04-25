@@ -3,19 +3,18 @@ pipeline {
 
     stages {
         stage('Composer Install') {
-            // agent { docker { image 'composer' } }
+            agent { docker { image 'composer' } }
             steps {
-                sh 'ls -al'
-                // echo 'Installing Vendor'
-                // sh 'composer install'
+                echo 'Installing Vendor'
+                sh 'composer install --working-dir ./PHP/project'
             }
         }
 
-        // stage('PHPUnit') {
-        //     agent { docker { image 'php' } }
-        //     steps {
-        //         sh './vendor/bin/phpunit'
-        //     }
-        // }
+        stage('PHPUnit') {
+            agent { docker { image 'php' } }
+            steps {
+                sh './vendor/bin/phpunit'
+            }
+        }
     }
 }
