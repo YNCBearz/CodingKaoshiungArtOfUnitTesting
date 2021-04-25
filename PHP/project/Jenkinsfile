@@ -5,9 +5,6 @@ pipeline {
             steps {
                 echo 'Installing Composer'
                 sh 'curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer'
-            }
-
-            steps {
                 echo 'Installing Vendor'
                 sh 'composer install'
             }
