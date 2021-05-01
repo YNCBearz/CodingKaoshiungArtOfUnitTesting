@@ -26,6 +26,9 @@ namespace CKUT
             services.AddRazorPages();
             services.RegisterInternalDependencies()
                 .RegisterHttpContext();
+
+            services.AddControllers();
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +48,8 @@ namespace CKUT
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseSwagger();
+            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
 
             app.UseEndpoints(endpoints =>
             {
