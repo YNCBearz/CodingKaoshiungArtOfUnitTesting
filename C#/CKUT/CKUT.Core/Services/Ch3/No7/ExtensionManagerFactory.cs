@@ -2,14 +2,16 @@
 {
     public class ExtensionManagerFactory
     {
-        private IFileExtensionManager _fileExtensionManager = null;
-        public IFileExtensionManager Create()
+        private static IFileExtensionManager _fileExtensionManager = null;
+        public static IFileExtensionManager Create()
         {
             if (_fileExtensionManager != null)
             {
                 return _fileExtensionManager;
             }
-            return new FileExtensionManager();
+
+            _fileExtensionManager = new FileExtensionManager();
+            return _fileExtensionManager;
         }
         public void SetManager(IFileExtensionManager fileExtensionManager)
         {

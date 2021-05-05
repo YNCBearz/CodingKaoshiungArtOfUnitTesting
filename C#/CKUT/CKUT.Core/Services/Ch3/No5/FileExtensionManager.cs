@@ -2,7 +2,7 @@
 {
     public class FileExtensionManager : IFileExtensionManager
     {
-        public bool IsValid(string fileName)
+        public virtual bool IsValid(string fileName)
         {
             //Read File
             var fileSystem = new FileSystem();

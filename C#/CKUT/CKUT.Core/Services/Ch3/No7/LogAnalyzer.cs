@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
+[assembly: InternalsVisibleTo("CKUT.UnitTests")]
 
 namespace CKUT.Core.Services.Ch3.No7
 {
@@ -6,9 +8,9 @@ namespace CKUT.Core.Services.Ch3.No7
     {
         private IFileExtensionManager _fileExtensionManager;
 
-        public LogAnalyzer()
+        internal LogAnalyzer()
         {
-            _fileExtensionManager = new ExtensionManagerFactory().Create();
+            _fileExtensionManager = ExtensionManagerFactory.Create();
         }
 
         public bool IsValidFileName(string fileName)
