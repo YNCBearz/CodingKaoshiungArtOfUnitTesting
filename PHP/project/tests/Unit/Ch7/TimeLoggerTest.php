@@ -3,9 +3,9 @@
 namespace Tests\Unit\Ch7;
 
 use DateTime;
+use PHPUnit\Framework\TestCase;
 use Src\Ch7\SystemTime;
 use Src\Ch7\TimeLogger;
-use PHPUnit\Framework\TestCase;
 
 class TimeLoggerTest extends TestCase
 {
