@@ -2,15 +2,25 @@
 
 namespace Tests\Unit\Ch7;
 
+use DateTime;
+use Src\Ch7\SystemTime;
 use Src\Ch7\TimeLogger;
 use PHPUnit\Framework\TestCase;
 
 class TimeLoggerTest extends TestCase
 {
-    public function testCreateMessage()
+    /**
+     * @test
+     */
+    public function SettingSystemTime_Always_ChangesTime()
     {
-        $result = TimeLogger::createMessage('abc');
-        var_dump($result);
-        $this->assertTrue(true);
+        SystemTime::set((new DateTime('2000-04-14')));
+        $actual = TimeLogger::createMessage('Hello World');
+        $this->assertStringContainsString('2000-04-14', $actual);
+    }
+
+    protected function tearDown(): void
+    {
+        SystemTime::reset();
     }
 }
