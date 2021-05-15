@@ -2,8 +2,8 @@
 
 
 use PHPUnit\Framework\TestCase;
-use Src\CH6\Sec3_2\Target;
-use Src\CH6\Sec3_2\WantStub;
+use Src\CH6\Sec3_2\Pay;
+use Src\CH6\Sec3_2\Payment;
 
 class TargetTest extends TestCase
 {
@@ -14,13 +14,13 @@ class TargetTest extends TestCase
     public function MethodBeTest_StubWantStub()
     {
         //Arrange
-        $WantStub = $this->createStub(WantStub::class);
+        $stubPay = $this->createStub(Pay::class);
         // 參數都不填寫，強制讓他回傳'參數忽略！'
-        $WantStub->method('methodUsed')->willReturn('參數忽略！');
-        $Target = new Target($WantStub);
+        $stubPay->method('payByCreditCard')->willReturn('參數忽略！');
+        $Payment = new Payment($stubPay);
 
         //Act
-        $actual = $Target->methodBeTest();
+        $actual = $Payment->payByCreditCard();
 
         //Assert
         var_dump($actual);
@@ -32,8 +32,8 @@ class TargetTest extends TestCase
      */
     public function MethodBeTest_RealWantStub()
     {
-        $Target = new Target(new WantStub());
-        $actual = $Target->methodBeTest();
+        $Payment = new Payment(new Pay());
+        $actual = $Payment->payByCreditCard();
 
         var_dump($actual);
 
