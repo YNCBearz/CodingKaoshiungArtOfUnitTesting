@@ -16,7 +16,7 @@ class TargetTest extends TestCase
         //Arrange
         $stubPay = $this->createStub(Pay::class);
         // 參數都不填寫，強制讓他回傳'參數忽略！'
-        $stubPay->method('payByCreditCard')->willReturn('參數忽略！');
+        $stubPay->method('byCreditCard')->willReturn('參數忽略！');
         $Payment = new Payment($stubPay);
 
         //Act
