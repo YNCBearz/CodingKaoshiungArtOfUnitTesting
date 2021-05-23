@@ -4,9 +4,9 @@ namespace Tests\Unit\CH8\Sec2_2;
 
 
 use PHPUnit\Framework\TestCase;
-use Src\CH8\Sec2_2\BeforeLogAnalyzer;
+use Src\CH8\Sec2_2\LogAnalyzer;
 
-class BeforeLogAnalyzerTest extends TestCase
+class LogAnalyzerTest extends TestCase
 {
 
     /**
@@ -16,7 +16,7 @@ class BeforeLogAnalyzerTest extends TestCase
     {
         //Arrange
         $filename = '123456789';
-        $LogAnalyzer = new BeforeLogAnalyzer();
+        $LogAnalyzer = new LogAnalyzer();
 
         //Actual
         $actual = $LogAnalyzer->isValid($filename);
@@ -31,7 +31,7 @@ class BeforeLogAnalyzerTest extends TestCase
     public function IsValid_LengthSmallerThan8_IsTrue(): void
     {    //Arrange
         $filename = '1234567';
-        $LogAnalyzer = new BeforeLogAnalyzer();
+        $LogAnalyzer = new LogAnalyzer();
 
         //Actual
         $actual = $LogAnalyzer->isValid($filename);
