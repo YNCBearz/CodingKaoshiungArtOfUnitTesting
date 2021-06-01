@@ -17,6 +17,7 @@ class LogAnalyzerTest extends TestCase
         //Arrange
         $filename = '123456789';
         $LogAnalyzer = new LogAnalyzer();
+        $LogAnalyzer->initialize();
 
         //Actual
         $actual = $LogAnalyzer->isValid($filename);
@@ -32,6 +33,7 @@ class LogAnalyzerTest extends TestCase
     {    //Arrange
         $filename = '1234567';
         $LogAnalyzer = new LogAnalyzer();
+        $LogAnalyzer->initialize();
 
         //Actual
         $actual = $LogAnalyzer->isValid($filename);

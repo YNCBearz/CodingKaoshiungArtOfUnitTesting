@@ -4,7 +4,7 @@ namespace Src\CH8\Sec2_5;
 
 use PHPUnit\Framework\TestCase;
 
-class OperatorTest extends TestCase
+class OperatorDataProviderTest extends TestCase
 {
 
     /**

@@ -4,7 +4,7 @@ namespace Src\CH8\Sec2_6;
 
 use PHPUnit\Framework\TestCase;
 
-class LogAnalyzerTest extends TestCase
+class LogAnalyzerCompareObjectTest extends TestCase
 {
 
     /**
