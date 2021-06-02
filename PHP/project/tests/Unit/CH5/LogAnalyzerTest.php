@@ -13,11 +13,11 @@ interface WebServiceInterface
 }
 
 //某個物件
-class ErrorInfo 
+class ErrorInfo
 {
     public $severity;
     public $message;
-    public function __construct($severity,$message)
+    public function __construct($severity, $message)
     {
         $this->severity = $severity;
         $this->message = $message;
@@ -45,7 +45,7 @@ class LogAnalyzer2
     public $minNameLength;
     public $logger;
     public $webService;
-    public function __construct($logger,$webService)
+    public function __construct($logger, $webService)
     {
         $this->logger = $logger;
         $this->webService = $webService;
@@ -54,9 +54,8 @@ class LogAnalyzer2
     {
         if (strlen($file_name) < $this->minNameLength) {
 
-            try{
+            try {
                 $this->logger->logError("Filename too short:" . $file_name);
-
             } catch (\Exception $e) {
                 $this->webService->write("Error From Logger:" . $e);
             }
@@ -69,7 +68,7 @@ class LogAnalyzer3
     public $minNameLength;
     public $logger;
     public $webService;
-    public function __construct($logger,$webService)
+    public function __construct($logger, $webService)
     {
         $this->logger = $logger;
         $this->webService = $webService;
@@ -78,11 +77,10 @@ class LogAnalyzer3
     {
         if (strlen($file_name) < $this->minNameLength) {
 
-            try{
+            try {
                 $this->logger->logError("Filename too short:" . $file_name);
-
             } catch (\Exception $e) {
-                $expected = new ErrorInfo(1000, "fake exception");//多出屬性
+                $expected = new ErrorInfo(1000, "fake exception"); //多出屬性
                 $this->webService->write($expected);
             }
         }
@@ -92,10 +90,10 @@ class LogAnalyzer3
 class LogAnalyzerTest extends TestCase
 {
     // public function test_all(){
-        // $this->Analyze_TooShortFileName_CallLogger();
-        // $this->Analyze_TooShortFileName_CallLogger_MockObject();
-        // $this->Analyze_loggerThrows_CallsWebService();
-        // $this->Analyze_loggerThrows_CallsWebServiceWithSubObject();
+    // $this->Analyze_TooShortFileName_CallLogger();
+    // $this->Analyze_TooShortFileName_CallLogger_MockObject();
+    // $this->Analyze_loggerThrows_CallsWebService();
+    // $this->Analyze_loggerThrows_CallsWebServiceWithSubObject();
     // }
 
 
@@ -106,7 +104,7 @@ class LogAnalyzerTest extends TestCase
         $analyzer = new LogAnalyzer($logger);
         $analyzer->minNameLength = 6;
         $analyzer->analyze("a.txt");
-        $this->assertContains("too short", $logger->lastError);
+        $this->assertStringContainsString("too short", $logger->lastError);
     }
 
     //5-3使用框架
@@ -138,7 +136,7 @@ class LogAnalyzerTest extends TestCase
         $mockService = $this->createMock(WebServiceInterface::class);
         $stubLogger = $this->createMock(LoggerInterface::class);
         $stubLogger->method("logError")->with($this->isType("string"))->will($this->throwException(new \Exception("fake exception")));
-        $expected = new ErrorInfo(1000, "fake exception");//多出屬性
+        $expected = new ErrorInfo(1000, "fake exception"); //多出屬性
         $mockService->expects($this->once())->method("write")->with($expected);
         $analyzer = new LogAnalyzer3($stubLogger, $mockService);
         $analyzer->minNameLength = 10;
@@ -155,5 +153,3 @@ class FakeLogger implements LoggerInterface
         $this->lastError = $message;
     }
 }
-
-
