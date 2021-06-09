@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests\Unit\CH5;
+
 use PHPUnit\Framework\TestCase;
 
 interface FileNameRulesInterface
@@ -49,6 +51,5 @@ class ReturnsTest extends TestCase
         $fakeRules = $this->createMock(FileNameRulesInterface::class);
         $fakeRules->method('isValidLogFileName')->with($this->isType('string'))->will($this->throwException(new \Exception));
         $fakeRules->isValidLogFileName('123123');
-
     }
 }
