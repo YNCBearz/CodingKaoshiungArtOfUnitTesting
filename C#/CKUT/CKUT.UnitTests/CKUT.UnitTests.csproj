@@ -20,4 +20,8 @@
     <ProjectReference Include="..\CKUT\CKUT.Web.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Ch8\8.2.1\" />
+  </ItemGroup>
+
 </Project>
