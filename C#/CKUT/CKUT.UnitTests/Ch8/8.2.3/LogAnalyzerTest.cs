@@ -15,7 +15,7 @@ namespace CKUT.UnitTests.Ch8._8._2._3
         {
             _logan = new LogAnalyzerInit();
             _logan.Initialize();
-            _fileInfo = new FileInfo("c:\\someFile.txt");
+            _fileInfo = new FileInfo("c:\\someFile.txt"); //僅一個測試方法用到
         }
         [Test]
         public void IsValid_LengthBiggerThan8_IsFalse()
