@@ -9,8 +9,7 @@ namespace CKUT.UnitTests.Ch8._8._2._1
         [Test]
         public void Should_Get_Correct_Result_When_Add_2_numbers()
         {
-            //test
-            var num1 = 1;
+            var num1 = 2;
             var num2 = 2;
             var calculator = new Calculator(num1, num2);
             var result = calculator.Calculate(CalculateMethod.Plus);
