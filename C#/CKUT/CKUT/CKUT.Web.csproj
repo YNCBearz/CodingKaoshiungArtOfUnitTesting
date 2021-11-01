@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <HooksPath>hooks</HooksPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,4 +17,7 @@
     <ProjectReference Include="..\CKUT.Core\CKUT.Core.csproj" />
   </ItemGroup>
 
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+   <Exec Command="dotnet restore" />
+  </Target>
 </Project>
