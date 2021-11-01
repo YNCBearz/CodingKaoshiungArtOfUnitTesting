@@ -7,7 +7,9 @@ cd C#/CKUT && dotnet test > /dev/null 2>&1
 returnCode=$?
 
 if [ $returnCode -ne 0 ] ; then
-    echo "You should pass the testing before commit"
+    echo "You should pass the testing before commit to remote"
     echo ""
     exit $returnCode
+else 
+    echo "All unit tests are passed"
 fi
