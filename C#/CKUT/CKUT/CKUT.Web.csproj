@@ -2,14 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <HooksPath>hooks</HooksPath>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotnetHooks" Version="1.0.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.3" />
   </ItemGroup>
 
