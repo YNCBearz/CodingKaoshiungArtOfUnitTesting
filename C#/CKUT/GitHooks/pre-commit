@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Execute testing without output
+cd C#/CKUT && dotnet test > /dev/null 2>&1
+
+# Restore result (retuen code) of testing
+returnCode=$?
+
+if [ $returnCode -ne 0 ] ; then
+    echo "You should pass the testing before commit"
+    echo ""
+    exit $returnCode
+fi
