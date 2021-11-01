@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <HooksPath>/githooks</HooksPath>
+    <HooksPath>~/githooks</HooksPath>
   </PropertyGroup>
 
   <ItemGroup>
