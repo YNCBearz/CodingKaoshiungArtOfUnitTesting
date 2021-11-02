@@ -13,7 +13,7 @@ namespace CKUT.UnitTests.Ch8._8._2._1
             var num2 = 2;
             var calculator = new Calculator(num1, num2);
             var result = calculator.Calculate(CalculateMethod.Plus);
-            Assert.AreEqual(result, 3);
+            Assert.AreEqual(result, 4);
         }
 
         //把方法改成公開方法
