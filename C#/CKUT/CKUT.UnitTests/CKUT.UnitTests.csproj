@@ -23,7 +23,7 @@
     <Folder Include="Ch8\8.2.1\" />
   </ItemGroup>
 
-  <Target Name="EmitCustomMessage" AfterTargets="Restore">
+  <Target Name="PreBuild" AfterTargets="PreBuildEvent">
     <Exec Command="git config core.hooksPath hooks" ConsoleToMsBuild="true"/>
   </Target>
 </Project>
