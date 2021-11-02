@@ -12,4 +12,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.3" />
   </ItemGroup>
 
+  <Target Name="PreBuild" AfterTargets="PreBuildEvent">
+    <Exec Command="git config core.hooksPath hooks" ConsoleToMsBuild="true"/>
+  </Target>
 </Project>

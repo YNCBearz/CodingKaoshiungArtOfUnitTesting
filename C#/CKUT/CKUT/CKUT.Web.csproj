@@ -12,7 +12,7 @@
     <ProjectReference Include="..\CKUT.Core\CKUT.Core.csproj" />
   </ItemGroup>
 
-  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-   <Exec Command="dotnet restore" />
+  <Target Name="PreBuild" AfterTargets="PreBuildEvent">
+    <Exec Command="git config core.hooksPath hooks" ConsoleToMsBuild="true"/>
   </Target>
 </Project>
