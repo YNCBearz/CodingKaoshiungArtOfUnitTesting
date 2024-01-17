@@ -2,14 +2,21 @@ namespace CKUT.Core.Services.Ch5.Models
 {
     public class Stone : Tile
     {
-        public bool IsStone()
+        private readonly IFalling fallingState;
+
+        public Stone(IFalling falling)
+        {
+            fallingState = falling;
+        }
+
+        public bool IsStony()
         {
             return true;
         }
 
         public bool IsFallingStone()
         {
-            return false;
+            return fallingState.isFalling();
         }
 
         public bool IsAir()
@@ -26,10 +33,10 @@ namespace CKUT.Core.Services.Ch5.Models
         {
             return false;
         }
-        
+
         public void MoveHorizontal()
         {
-            //Move logic for stone
+            fallingState.MoveHorizontal();
         }
     }
 }

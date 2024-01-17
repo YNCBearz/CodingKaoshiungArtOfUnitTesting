@@ -2,7 +2,7 @@ namespace CKUT.Core.Services.Ch5.Models
 {
     public class Lock1 : Tile
     {
-        public bool IsStone()
+        public bool IsStony()
         {
             return false;
         }

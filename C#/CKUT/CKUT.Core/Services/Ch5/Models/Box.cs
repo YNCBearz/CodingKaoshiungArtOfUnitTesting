@@ -2,7 +2,7 @@ namespace CKUT.Core.Services.Ch5.Models
 {
     public class Box : Tile
     {
-        public bool IsStone()
+        public bool IsStony()
         {
             return false;
         }

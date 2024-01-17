@@ -8,9 +8,9 @@ namespace CKUT.Core.Services.Ch5
         {
             { new Unbreakable(), new Unbreakable(), new Unbreakable(), new Unbreakable(), new Unbreakable(), new Unbreakable(), new Unbreakable(), new Unbreakable() },
             { new Unbreakable(), new Player(), new Air(), new Flux(), new Flux(), new Unbreakable(), new Air(), new Unbreakable() },
-            { new Unbreakable(), new Stone(), new Unbreakable(), new Box(), new Flux(), new Unbreakable(), new Air(), new Unbreakable() },
-            { new Unbreakable(), new Key1(), new Stone(), new Flux(), new Flux(), new Unbreakable(), new Air(), new Unbreakable() },
-            { new Unbreakable(), new Stone(), new Flux(), new Flux(), new Flux(), new Lock1(), new Air(), new Unbreakable() },
+            { new Unbreakable(), new Stone(new Rest()), new Unbreakable(), new Box(), new Flux(), new Unbreakable(), new Air(), new Unbreakable() },
+            { new Unbreakable(), new Key1(), new Stone(new Rest()), new Flux(), new Flux(), new Unbreakable(), new Air(), new Unbreakable() },
+            { new Unbreakable(), new Stone(new Rest()), new Flux(), new Flux(), new Flux(), new Lock1(), new Air(), new Unbreakable() },
             { new Unbreakable(), new Unbreakable(), new Unbreakable(), new Unbreakable(), new Unbreakable(), new Unbreakable(), new Unbreakable(), new Unbreakable() },
         };
 
@@ -26,9 +26,9 @@ namespace CKUT.Core.Services.Ch5
 
         public void UpdateTile(int x, int y)
         {
-            if ((_map[y, x].IsStone() || _map[y, x].IsFallingStone()) && _map[y + 1, x].IsAir())
+            if (_map[y, x].IsStony() && _map[y + 1, x].IsAir())
             {
-                _map[y + 1, x] = new FallingStone();
+                _map[y + 1, x] = new Stone(new Falling());
                 _map[y, x] = new Air();
             }
             else if ((_map[y, x].IsBox() || _map[y, x].IsFallingBox()) && _map[y + 1, x].IsAir())
@@ -38,12 +38,25 @@ namespace CKUT.Core.Services.Ch5
             }
             else if (_map[y, x].IsFallingStone())
             {
-                _map[y, x] = new Stone();
+                _map[y, x] = new Stone(new Rest());
             }
             else if (_map[y, x].IsFallingBox())
             {
                 _map[y, x] = new Box();
             }
         }
+    }
+
+    public interface IFalling
+    {
+        bool isFalling();
+        bool isRest();
+        void MoveHorizontal();
+    }
+
+    public enum FallingState
+    {
+        Falling,
+        Rest
     }
 }
